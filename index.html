@@ -69,17 +69,33 @@
           </ul>
           
           
-          <!--  🚧 TODO: ADD BUTTON HERE -->
-  <!--        <h2> The Fun Form </h2>
-            <form>
+         🚧 TODO: ADD BUTTON HERE -->
+        <h2> The Fun Form </h2>
+            <form method="post" id="sheetdb-form"
+            action="https://sheetdb.io/api/v1/nqdtvbtkficne">
               <label for="name" class = "cutesie_purple">First name: </label>
               <input type = "text" id="name"><br><br>
               <label for = "lastn" class = "cutesie_purple">Last name:</label>
               <input type = "text" id = "lastn" ><br><br>
               <label for = "animal" class = "cutesie_purple">Favorite animal:</label>
               <input type = "text" id = "animal">
+              <button type="submit">Submit</button>
             </form>
-   -->     
+            <script>
+              var form = document.getElementById('sheetdb-form');
+              form.addEventListener("submit", e => {
+                e.preventDefault();
+                fetch(form.action, {
+                    method : "POST",
+                    body: new FormData(document.getElementById("sheetdb-form")),
+                }).then(
+                    response => response.json()
+                ).then((html) => {
+                  // you can put any JS code here
+                  alert('success')
+                });
+              });
+            </script>
           <!-- Once you've added the button from TODO.md, click it in the page -->
           <!-- Check out the function in script.js to see how it works -->
         </div>
